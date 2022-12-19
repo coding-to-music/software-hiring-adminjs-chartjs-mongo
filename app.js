@@ -48,13 +48,14 @@ const adminJSRouter = AdminJSExpress.buildRouter(adminJS);
 
 // mongoose.connect(`${config.connectionString}/${config.dbname}`, {
 // useFindAndModify: false,
+// strictQuery: false,
 
 // mount adminJS route and run express app
 const app = express();
+mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  strictQuery: false,
 });
 app.use(adminJS.options.rootPath, adminJSRouter);
 
@@ -65,6 +66,7 @@ app.use(express.json()); // after mounting adminJS route to avoid conflict
 app.use("/emails", emailRoute);
 app.use("/stats", statsRoute);
 app.use("/public", express.static("public"));
+app.use("/", adminJSRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -72,4 +74,6 @@ app.use(function (err, req, res, next) {
   res.status(500).json({ success: false, message: "INTERNAL_ERROR" });
 });
 
-app.listen(8080, () => console.log("AdminJS is under localhost:8080/admin"));
+app.listen(8080, () =>
+  console.log("AdminJS is under http://localhost:8080/admin")
+);
