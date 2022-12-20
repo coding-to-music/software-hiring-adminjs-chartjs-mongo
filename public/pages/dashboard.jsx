@@ -1,9 +1,15 @@
 import { Box, Header } from "@adminjs/design-system";
+// import { CategoryScale, Chart } from "chart.js";
+// import { CategoryScale, Bar } from "chart.js";
 import { useEffect, useState } from "react";
 
 import { Bar } from "react-chartjs-2";
 import { FunnelChart } from "react-funnel-pipeline";
 import StatsBox from "../custom-components/stats-box";
+
+// https://react-chartjs-2.js.org/faq/registered-scale/
+
+// Chart.register(CategoryScale);
 
 const Dashboard = () => {
   const [totalPosition, setTotalPosition] = useState(0);
@@ -195,8 +201,8 @@ const Dashboard = () => {
             Application by position
           </Header.H4>
           {/* <Bar
-          options={appByPositionChart.options}
-          data={appByPositionChart.data}
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
           /> */}
           {/* <FunnelChart
             style={{ width: "70%", margin: "auto" }}
