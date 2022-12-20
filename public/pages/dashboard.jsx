@@ -180,7 +180,7 @@ const Dashboard = () => {
           marginTop: "50px",
         }}
       >
-        <Box
+        {/* <Box
           width={1 / 2}
           variant="card"
           style={{ textAlign: "center", margin: "10px", padding: "18px" }}
@@ -199,7 +199,7 @@ const Dashboard = () => {
             data={appByPositionChart.data}
           />
           ;
-        </Box>
+        </Box> */}
 
         <Box
           width={1 / 2}
