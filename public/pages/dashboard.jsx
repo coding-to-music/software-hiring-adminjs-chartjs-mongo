@@ -180,7 +180,7 @@ const Dashboard = () => {
           marginTop: "50px",
         }}
       >
-        {/* <Box
+        <Box
           width={1 / 2}
           variant="card"
           style={{ textAlign: "center", margin: "10px", padding: "18px" }}
@@ -194,12 +194,15 @@ const Dashboard = () => {
           >
             Application by position
           </Header.H4>
-          <Bar
-            options={appByPositionChart.options}
-            data={appByPositionChart.data}
-          />
-          ;
-        </Box> */}
+          {/* <Bar
+          options={appByPositionChart.options}
+          data={appByPositionChart.data}
+          /> */}
+          {/* <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          /> */}
+        </Box>
 
         <Box
           width={1 / 2}
