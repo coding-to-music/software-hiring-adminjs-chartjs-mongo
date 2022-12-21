@@ -18,7 +18,7 @@ import { Bar } from "react-chartjs-2";
 import { FunnelChart } from "react-funnel-pipeline";
 import StatsBox from "../custom-components/stats-box";
 // import { faker } from "faker";
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/en_US";
 
 // https://react-chartjs-2.js.org/faq/registered-scale/
 
