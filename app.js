@@ -42,6 +42,12 @@ const adminJS = new AdminJS({
     },
     component: AdminJS.bundle("./public/pages/dashboard.jsx"),
   },
+  sandbox: {
+    handler: async (request, response, context) => {
+      return { success: true, errorSet: [] }; // dashboard cannot receive props...
+    },
+    component: AdminJS.bundle("./public/pages/sandbox.jsx"),
+  },
 });
 adminJS.watch();
 const adminJSRouter = AdminJSExpress.buildRouter(adminJS);
