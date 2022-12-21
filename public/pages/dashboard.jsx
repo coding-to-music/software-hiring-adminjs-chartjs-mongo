@@ -23,6 +23,10 @@ const Dashboard = () => {
 
   useEffect(() => getStats(), []);
 
+  console.log("nbCandidateByPosition ", nbCandidateByPosition);
+
+  console.log("nbCandidateByStage ", nbCandidateByStage);
+
   function getStats() {
     fetch(`/stats`, {
       method: "GET",
