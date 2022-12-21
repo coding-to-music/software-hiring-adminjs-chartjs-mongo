@@ -26,5 +26,8 @@
     "react-chartjs-2": "^5.1.0",
     "react-funnel-pipeline": "^0.2.0",
     "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }

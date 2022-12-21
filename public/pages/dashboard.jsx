@@ -1,15 +1,32 @@
+// import React from 'react';
+import {
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  Title,
+  Tooltip,
+} from "chart.js";
 import { Box, Header } from "@adminjs/design-system";
 // import { CategoryScale, Chart } from "chart.js";
 // import { CategoryScale, Bar } from "chart.js";
 import { useEffect, useState } from "react";
 
 import { Bar } from "react-chartjs-2";
+// import { Bar } from "react-chartjs-2";
 import { FunnelChart } from "react-funnel-pipeline";
 import StatsBox from "../custom-components/stats-box";
+// import { faker } from "faker";
+import { faker } from "@faker-js/faker";
 
 // https://react-chartjs-2.js.org/faq/registered-scale/
 
 // Chart.register(CategoryScale);
+
+// export function App() {
+//   return <Bar options={options} data={data} />;
+// }
 
 const Dashboard = () => {
   const [totalPosition, setTotalPosition] = useState(0);
@@ -20,6 +37,54 @@ const Dashboard = () => {
   const [nbCandidateByPosition, setNbCandidateByPosition] = useState([]);
   const [nbCandidateByStage, setNbCandidatByStage] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        // position: 'top' as const,
+      },
+      title: {
+        display: true,
+        text: "Chart.js Bar Chart",
+      },
+    },
+  };
+
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+  ];
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Dataset 1",
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "Dataset 2",
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+    ],
+  };
 
   useEffect(() => getStats(), []);
 
@@ -204,6 +269,7 @@ const Dashboard = () => {
           >
             Application by position
           </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
           {/* <Bar
             options={appByPositionChart.options}
             data={appByPositionChart.data}
