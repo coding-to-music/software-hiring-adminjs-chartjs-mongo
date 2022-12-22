@@ -12,7 +12,8 @@ const transporter = nodemailer.createTransport({
 
 module.exports = {
   sendEmail: function (params) {
-    console.log("email.sender sendMail", params);
+    console.log("email.sender sendMail params", params);
+    console.log("email.sender sendMail config", config);
 
     let { receivers, subject, body } = params;
     const mailOptions = {
