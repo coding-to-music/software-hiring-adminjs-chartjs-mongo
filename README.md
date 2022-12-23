@@ -1,5 +1,22 @@
 # software-hiring-adminjs-chartjs-mongo
 
+Works!
+
+- edit database tables Hiring, Position, Email, Candidate and Interview
+- Sends emails for Interview and Offer / Rejected
+
+### Tasks
+
+- send email gmail - done
+- navigation for sandbox
+- navigation for dashboard
+- bar chart does not work
+- add google/GitHub auth to the app
+- Icon logo and favicon
+- deploy to Vercel or GitHub pages
+
+# Subject and Body are empty in the emails
+
 # 🚀 Use AdminJS to Quickly Build an Administration Web App 🚀
 
 https://github.com/coding-to-music/software-hiring-adminjs-chartjs-mongo
