@@ -69,7 +69,14 @@ Output
 Run ncu -u to upgrade package.json
 ```
 
-Create & use App Passwords
+## Why you may need an App Password
+
+Tip: Don’t create an App Password unless the app or device you want to connect to your account doesn’t have “Sign in with Google.”
+
+When you use 2-Step Verification, some less secure apps or devices may be blocked from accessing your Google Account. App Passwords are a way to let the blocked app or device access your Google Account.
+
+## Create & use App Passwords
+
 If you use 2-Step-Verification and get a "password incorrect" error when you sign in, you can try to use an App Password.
 
 - Go to your Google Account. https://myaccount.google.com/
