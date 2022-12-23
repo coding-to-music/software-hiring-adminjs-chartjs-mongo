@@ -4,7 +4,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   host: config.sender_host,
   port: config.sender_port,
-  secure: true, // true for 465, false for other ports
+  secure: false, // true for 465, false for other ports
   auth: {
     type: "login",
     user: config.sender_address,
