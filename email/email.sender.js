@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 module.exports = {
   sendEmail: function (params) {
     console.log("email.sender sendMail params", params);
-    console.log("email.sender sendMail config", config);
+    // console.log("email.sender sendMail config", config);
 
     let { receivers, subject, body } = params;
     const mailOptions = {
@@ -24,10 +24,10 @@ module.exports = {
         address: config.sender_address,
       },
       to: receivers,
-      subject: "Subject Here",
-      html: "body goes here",
-      //   subject: subject,
-      //   html: body,
+      // subject: "Subject Here",
+      // html: "body goes here",
+      subject: subject,
+      html: body,
     };
     transporter
       .sendMail(mailOptions)

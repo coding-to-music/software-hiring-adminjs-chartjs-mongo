@@ -69,6 +69,31 @@ Output
 Run ncu -u to upgrade package.json
 ```
 
+## Setting up Nodemailer with Gmail after 2022. May
+
+https://dev.to/viktoriabors/setting-up-nodemailer-with-gmail-after-2022-may-55af
+
+https://github.com/ViktoriaBors/xmasWishes/blob/main/server.js
+
+https://dev.to/documatic/send-email-in-nodejs-with-nodemailer-using-gmail-account-2gd1
+
+## Less secure apps & your Google Account
+
+To help keep your account secure, from May 30, 2022, ​​Google no longer supports the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password.
+
+https://support.google.com/accounts/answer/6010255
+
+## Outgoing Mail (SMTP) Server
+
+https://support.google.com/mail/answer/7126229
+
+- smtp.gmail.com (use this)
+- Requires SSL: Yes
+- Requires TLS: Yes (if available)
+- Requires Authentication: Yes
+- Port for SSL: 465
+- Port for TLS/STARTTLS: 587 (use this)
+
 ## Why you may need an App Password
 
 Tip: Don’t create an App Password unless the app or device you want to connect to your account doesn’t have “Sign in with Google.”
@@ -76,6 +101,8 @@ Tip: Don’t create an App Password unless the app or device you want to connect
 When you use 2-Step Verification, some less secure apps or devices may be blocked from accessing your Google Account. App Passwords are a way to let the blocked app or device access your Google Account.
 
 ## Create & use App Passwords
+
+https://support.google.com/accounts/answer/185833
 
 If you use 2-Step-Verification and get a "password incorrect" error when you sign in, you can try to use an App Password.
 
