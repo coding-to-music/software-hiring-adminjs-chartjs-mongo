@@ -24,7 +24,7 @@ const clearAll = async function () {
 
 const seedStreet = async function () {
   // const studentList = await Student.find();
-  await Street.deleteMany();
+  // await Street.deleteMany();
 
   const startNum = 0;
 
