@@ -18,7 +18,7 @@ mongoose
 
 const clearAll = async function () {
   console.log("clearAll BEGIN");
-  await Street.deleteMany();
+  //   await Street.deleteMany();
   console.log("clearAll END");
 };
 
