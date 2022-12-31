@@ -14,6 +14,7 @@ const { PositionResourceOptions } = require("./position/position.options");
 const { CandidateResourceOptions } = require("./candidate/candidate.options");
 const { InterviewResourceOptions } = require("./interview/interview.options");
 const { EmailResourceOptions } = require("./email/email.options");
+const { StreetResourceOptions } = require("./street/street.options");
 
 const adminJS = new AdminJS({
   databases: [],
@@ -23,6 +24,7 @@ const adminJS = new AdminJS({
     EmailResourceOptions,
     CandidateResourceOptions,
     InterviewResourceOptions,
+    StreetResourceOptions,
   ],
   branding: {
     companyName: "Hiring Management App", // title of page
@@ -71,6 +73,7 @@ const statsRoute = require("./stats/stats.route");
 app.use(express.json()); // after mounting adminJS route to avoid conflict
 app.use("/emails", emailRoute);
 app.use("/stats", statsRoute);
+app.use("/streets", streetsRoute);
 app.use("/public", express.static("public"));
 app.use("/", adminJSRouter);
 

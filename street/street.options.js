@@ -1,5 +1,5 @@
 const { Street } = require("./street.model");
-const { hiringMenu } = require("../common/navigation");
+const { streetMenu } = require("../common/navigation");
 
 const StreetResourceOptions = {
   resource: Street,
