@@ -73,7 +73,7 @@ const statsRoute = require("./stats/stats.route");
 app.use(express.json()); // after mounting adminJS route to avoid conflict
 app.use("/emails", emailRoute);
 app.use("/stats", statsRoute);
-app.use("/streets", streetsRoute);
+// app.use("/streets", streetsRoute);
 app.use("/public", express.static("public"));
 app.use("/", adminJSRouter);
 
