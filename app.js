@@ -14,7 +14,7 @@ const { PositionResourceOptions } = require("./position/position.options");
 const { CandidateResourceOptions } = require("./candidate/candidate.options");
 const { InterviewResourceOptions } = require("./interview/interview.options");
 const { EmailResourceOptions } = require("./email/email.options");
-// const { StreetResourceOptions } = require("./street/street.options");
+const { StreetResourceOptions } = require("./street/street.options");
 
 const adminJS = new AdminJS({
   databases: [],
@@ -24,7 +24,7 @@ const adminJS = new AdminJS({
     EmailResourceOptions,
     CandidateResourceOptions,
     InterviewResourceOptions,
-    // StreetResourceOptions,
+    StreetResourceOptions,
   ],
   branding: {
     companyName: "Hiring Management App", // title of page

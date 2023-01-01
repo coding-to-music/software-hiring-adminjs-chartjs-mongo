@@ -1,7 +1,12 @@
 // navigation bar
 const hiringMenu = {
-    name: 'Hiring',
-    icon: 'Events',
-}
+  name: "Hiring",
+  icon: "Events",
+};
 
-module.exports = { hiringMenu };
+const streetMenu = {
+  name: "Street Topics",
+  icon: "Events",
+};
+
+module.exports = { hiringMenu, streetMenu };

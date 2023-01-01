@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-// const Street = require("../models/street");
 const { Street } = require("../street/street.model");
 
 const streetDetail = require("./streetDetail");
@@ -18,7 +17,7 @@ mongoose
 
 const clearAll = async function () {
   console.log("clearAll BEGIN");
-  //   await Street.deleteMany();
+  await Street.deleteMany();
   console.log("clearAll END");
 };
 
@@ -26,7 +25,7 @@ const seedStreet = async function () {
   // const studentList = await Student.find();
   // await Street.deleteMany();
 
-  const startNum = 1100;
+  const startNum = 0;
 
   for (let i = startNum; i <= streetDetail.length - 1; i++) {
     var skip = false;
@@ -163,9 +162,16 @@ const seedStreet = async function () {
     }
   }
 };
-seedStreet().then(() => {
-  mongoose.connection.close();
+
+clearAll().then(() => {
+  seedStreet().then(() => {
+    mongoose.connection.close();
+  });
 });
+
+// seedStreet().then(() => {
+//   mongoose.connection.close();
+// });
 
 // clearAll().then(() => {
 //     seedCourse();
