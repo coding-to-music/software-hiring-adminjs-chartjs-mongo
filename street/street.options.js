@@ -4,7 +4,7 @@ const { hiringMenu } = require("../common/navigation");
 const StreetResourceOptions = {
   resource: Street,
   options: {
-    navigation: hiringMenu,
+    // navigation: hiringMenu,
     properties: {
       _id: {
         isVisible: false,
