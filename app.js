@@ -70,6 +70,7 @@ app.use(adminJS.options.rootPath, adminJSRouter);
 // custom route
 const emailRoute = require("./email/email.route");
 const statsRoute = require("./stats/stats.route");
+const streetStatsRoute = require("./streetStats/streetStats.route");
 app.use(express.json()); // after mounting adminJS route to avoid conflict
 app.use("/emails", emailRoute);
 app.use("/stats", statsRoute);
