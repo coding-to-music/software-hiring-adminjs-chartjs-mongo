@@ -75,6 +75,7 @@ app.use(express.json()); // after mounting adminJS route to avoid conflict
 app.use("/emails", emailRoute);
 app.use("/stats", statsRoute);
 app.use("/foo", statsRoute);
+app.use("/bar", streetStatsRoute);
 app.use("/streetstats", streetStatsRoute);
 app.use("/public", express.static("public"));
 app.use("/", adminJSRouter);

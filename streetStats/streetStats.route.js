@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const statsService = require("./streetStats.service");
-router.get("/streetstats", async function (req, res, next) {
+const streetStatsService = require("./streetStats.service");
+router.get("/", async function (req, res, next) {
   try {
     console.log("streetStats.route.js about to call getStreetStats");
     const data = await streetStatsService.getStreetStats();
