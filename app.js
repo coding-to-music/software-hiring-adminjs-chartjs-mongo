@@ -42,7 +42,7 @@ const adminJS = new AdminJS({
     handler: async (request, response, context) => {
       return { success: true, errorSet: [] }; // dashboard cannot receive props...
     },
-    component: AdminJS.bundle("./public/pages/dashboard.jsx"),
+    component: AdminJS.bundle("./public/pages/sandbox.jsx"),
   },
   sandbox: {
     handler: async (request, response, context) => {

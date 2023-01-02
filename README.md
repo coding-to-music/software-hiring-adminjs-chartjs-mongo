@@ -187,4 +187,14 @@ curl -s http://localhost:8080/stats | jq
 }
 ```
 
+## street stats
+
 http://localhost:8080/stats
+
+```
+curl -s http://localhost:8080/streetStats | jq
+```
+
+```json
+
+```

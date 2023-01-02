@@ -32,6 +32,7 @@ const Sandbox = () => {
   const [totalPosition, setTotalPosition] = useState(0);
   const [totalCandidate, setTotalCandidate] = useState(0);
   const [totalHired, setTotalHired] = useState(0);
+  const [totalStreet, setTotalStreet] = useState(0);
 
   const [positionsName, setPositionsName] = useState([]);
   const [nbCandidateByPosition, setNbCandidateByPosition] = useState([]);
@@ -93,7 +94,7 @@ const Sandbox = () => {
   console.log("nbCandidateByStage ", nbCandidateByStage);
 
   function getStats() {
-    fetch(`/stats`, {
+    fetch(`/streetStats`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -108,11 +109,13 @@ const Sandbox = () => {
           positionCount,
           candidateCount,
           hiredCount,
+          streetCount,
         } = data;
 
         setTotalPosition(positionCount);
         setTotalCandidate(candidateCount);
         setTotalHired(hiredCount);
+        setTotalStreet(streetCount);
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
@@ -238,8 +241,8 @@ const Sandbox = () => {
         ></StatsBox>
 
         <StatsBox
-          label="Hired"
-          data={totalHired}
+          label="StreetCount"
+          data={totalStreet}
           link="/admin/resources/Candidate?filters.currentStage=HIRED"
           icon="Settings"
           bg="#70C9B0"
