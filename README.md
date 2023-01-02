@@ -135,3 +135,56 @@ If you use 2-Step-Verification and get a "password incorrect" error when you sig
 - Tap Done.
 
 Tip: Most of the time, you’ll only have to enter an App Password once per app or device, so don’t worry about memorizing it.
+
+## Calling API's
+
+http://localhost:8080/stats
+
+```
+curl -s http://localhost:8080/stats | jq
+```
+
+```json
+{
+  "success": true,
+  "data": {
+    "candidateByPosition": [
+      {
+        "_id": "63a0eb62f070e0964c5bbf65",
+        "count": 1,
+        "positionData": [
+          {
+            "_id": "63a0eb62f070e0964c5bbf65",
+            "name": "Accountant",
+            "__v": 0
+          }
+        ],
+        "positionName": "Accountant"
+      },
+      {
+        "_id": "63a0ea6ef070e0964c5bbf5c",
+        "count": 1,
+        "positionData": [
+          {
+            "_id": "63a0ea6ef070e0964c5bbf5c",
+            "name": "Developer",
+            "__v": 0
+          }
+        ],
+        "positionName": "Developer"
+      }
+    ],
+    "candidateByStage": [
+      {
+        "_id": "OFFER",
+        "count": 2
+      }
+    ],
+    "positionCount": 3,
+    "candidateCount": 2,
+    "hiredCount": 0
+  }
+}
+```
+
+http://localhost:8080/stats
