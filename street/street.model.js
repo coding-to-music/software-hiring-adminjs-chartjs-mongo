@@ -55,6 +55,7 @@ module.exports = {
   Street,
   countStreet,
   countStreetByWidth,
+  countStreetByWidthBucket,
 };
 
 async function countStreet() {
@@ -76,3 +77,38 @@ async function countStreetByWidth() {
 
   return data;
 }
+
+async function countStreetByWidthBucket() {
+  const aggregatorOpts = [
+    // count by street by width in buckets
+    {
+      $bucket: {
+        groupBy: "$width",
+        boundaries: [0, 20, 30, 40, 50, 60, 70, 200],
+        default: "other",
+        output: {
+          count: { $sum: 1 },
+          total: { $sum: "$width" },
+        },
+      },
+    },
+  ];
+
+  const data = await Street.aggregate(aggregatorOpts).exec();
+
+  return data;
+}
+
+// db.collection.aggregate([
+//   {
+//     $bucket: {
+//       groupBy: "$value",
+//       boundaries: [0, 50, 100],
+//       default: "other",
+//       output: {
+//         count: { $sum: 1 },
+//         total: { $sum: "$value" },
+//       },
+//     },
+//   },
+// ]);
