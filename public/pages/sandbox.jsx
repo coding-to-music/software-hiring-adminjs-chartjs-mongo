@@ -252,6 +252,41 @@ const Sandbox = () => {
       <div
         style={{
           display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StatsBox
+          label="Fun Stat-1"
+          data={totalPosition}
+          link="/admin/resources/Position"
+          icon="Archive"
+          bg="#ce3551"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Fun Stat-2"
+          data={totalCandidate}
+          link="/admin/resources/Candidate"
+          icon="ContainerSoftware"
+          bg="#54c00b"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Fun Stat-3"
+          data={totalStreet}
+          link="/admin/resources/Candidate?filters.currentStage=HIRED"
+          icon="Settings"
+          bg="#b9c970"
+          color="#FFFFFF"
+        ></StatsBox>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",
           marginTop: "50px",
@@ -272,14 +307,60 @@ const Sandbox = () => {
             Application by position
           </Header.H4>
           <Bar options={options} data={data} />
+          {/* <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          /> */}
+        </Box>
+
+        <Box
+          width={1 / 2}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Recruitment Funnel
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          marginTop: "50px",
+        }}
+      >
+        <Box
+          width={1 / 2}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Application by position
+          </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
           <Bar
             options={appByPositionChart.options}
             data={appByPositionChart.data}
           />
-          {/* <FunnelChart
-            style={{ width: "70%", margin: "auto" }}
-            data={hiringFunnelChart.data}
-          /> */}
         </Box>
 
         <Box
