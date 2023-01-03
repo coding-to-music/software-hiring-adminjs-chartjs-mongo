@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Box, Header } from "@adminjs/design-system";
+// import { chartData, chartOptions } from "../custom-components/faker-bar-chart";
 // import { CategoryScale, Chart } from "chart.js";
 // import { CategoryScale, Bar } from "chart.js";
 import { useEffect, useState } from "react";
@@ -21,6 +22,37 @@ import StatsBox from "../custom-components/stats-box";
 import { faker } from "@faker-js/faker/locale/en_US";
 
 // https://react-chartjs-2.js.org/faq/registered-scale/
+
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      // position: 'top' as const,
+    },
+    title: {
+      display: true,
+      text: "Chart.js Bar Chart",
+    },
+  },
+};
+
+const labels = ["January", "February", "March", "April", "May", "June", "July"];
+
+const data = {
+  labels,
+  datasets: [
+    {
+      label: "Dataset 1",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+      label: "Dataset 2",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+    },
+  ],
+};
 
 // Chart.register(CategoryScale);
 
@@ -51,45 +83,6 @@ const Sandbox = () => {
     Tooltip,
     Legend
   );
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        // position: 'top' as const,
-      },
-      title: {
-        display: true,
-        text: "Chart.js Bar Chart",
-      },
-    },
-  };
-
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      {
-        label: "Dataset 2",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-      },
-    ],
-  };
 
   useEffect(() => getStats(), []);
 
