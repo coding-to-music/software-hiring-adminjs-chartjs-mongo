@@ -354,7 +354,7 @@ const Sandbox = () => {
               marginBottom: "40px",
             }}
           >
-            Application by position
+            BarChart2
           </Header.H4>
           {/* <Bar options={options} data={data} /> */}
           <Bar
@@ -375,7 +375,7 @@ const Sandbox = () => {
               marginBottom: "40px",
             }}
           >
-            Recruitment Funnel
+            Another Recruitment Funnel
           </Header.H4>
           <FunnelChart
             style={{ width: "70%", margin: "auto" }}
