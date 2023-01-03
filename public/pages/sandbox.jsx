@@ -272,11 +272,11 @@ const Sandbox = () => {
           >
             Application by position
           </Header.H4>
-          {/* <Bar options={options} data={data} /> */}
-          {/* <Bar
+          <Bar options={options} data={data} />
+          <Bar
             options={appByPositionChart.options}
             data={appByPositionChart.data}
-          /> */}
+          />
           {/* <FunnelChart
             style={{ width: "70%", margin: "auto" }}
             data={hiringFunnelChart.data}
