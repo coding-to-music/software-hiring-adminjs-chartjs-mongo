@@ -282,6 +282,33 @@ const Sandbox = () => {
           bg="#b9c970"
           color="#FFFFFF"
         ></StatsBox>
+
+        <StatsBox
+          label="Fun Stat-4"
+          data={totalPosition}
+          link="/admin/resources/Position"
+          icon="Archive"
+          bg="#ce3551"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Fun Stat-5"
+          data={totalCandidate}
+          link="/admin/resources/Candidate"
+          icon="ContainerSoftware"
+          bg="#54c00b"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Fun Stat-6"
+          data={totalStreet}
+          link="/admin/resources/Candidate?filters.currentStage=HIRED"
+          icon="Settings"
+          bg="#b9c970"
+          color="#FFFFFF"
+        ></StatsBox>
       </div>
 
       <div
@@ -306,11 +333,11 @@ const Sandbox = () => {
           >
             Application by position
           </Header.H4>
-          <Bar options={options} data={data} />
-          {/* <Bar
+          {/* <Bar options={options} data={data} /> */}
+          <Bar
             options={appByPositionChart.options}
             data={appByPositionChart.data}
-          /> */}
+          />
         </Box>
 
         <Box
@@ -354,13 +381,13 @@ const Sandbox = () => {
               marginBottom: "40px",
             }}
           >
-            BarChart2
+            Bar Chart with Random Data
           </Header.H4>
-          {/* <Bar options={options} data={data} /> */}
-          <Bar
+          <Bar options={options} data={data} />
+          {/* <Bar
             options={appByPositionChart.options}
             data={appByPositionChart.data}
-          />
+          /> */}
         </Box>
 
         <Box
