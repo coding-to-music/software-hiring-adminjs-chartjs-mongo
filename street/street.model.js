@@ -88,7 +88,8 @@ async function countStreetByWidthBucket() {
         default: "other",
         output: {
           count: { $sum: 1 },
-          total: { $sum: "$width" },
+          totalLength: { $sum: "$streetLength" },
+          totalArea: { $sum: "$area" },
         },
       },
     },
