@@ -33,6 +33,10 @@ const Sandbox = () => {
   const [totalCandidate, setTotalCandidate] = useState(0);
   const [totalHired, setTotalHired] = useState(0);
   const [totalStreet, setTotalStreet] = useState(0);
+  // const [totalStreet, setTotalStreet] = useState(0);
+  // const [totalStreet, setTotalStreet] = useState(0);
+  // streetByWidth,
+  // streetByWidthBucket,
 
   const [positionsName, setPositionsName] = useState([]);
   const [nbCandidateByPosition, setNbCandidateByPosition] = useState([]);
@@ -110,6 +114,8 @@ const Sandbox = () => {
           candidateCount,
           hiredCount,
           streetCount,
+          // streetByWidth,
+          // streetByWidthBucket,
         } = data;
 
         setTotalPosition(positionCount);
