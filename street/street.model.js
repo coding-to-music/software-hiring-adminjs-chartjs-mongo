@@ -54,8 +54,25 @@ module.exports = {
   StreetSchema,
   Street,
   countStreet,
+  countStreetByWidth,
 };
 
 async function countStreet() {
   return await Street.count();
+}
+
+async function countStreetByWidth() {
+  const aggregatorOpts = [
+    // count by street by width
+    {
+      $group: {
+        _id: "$width",
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+  const data = await Street.aggregate(aggregatorOpts).exec();
+
+  return data;
 }

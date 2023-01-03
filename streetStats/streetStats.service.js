@@ -3,13 +3,14 @@ const {
   countCandidateByStage,
 } = require("../candidate/candidate.model");
 const { countPosition } = require("../position/position.model");
-const { countStreet } = require("../street/street.model");
+const { countStreet, countStreetByWidth } = require("../street/street.model");
 
 async function getStreetStats() {
   const candidateByPosition = await countCandidateByPosition();
   const candidateByStage = await countCandidateByStage();
   const positionCount = await countPosition();
   const streetCount = await countStreet();
+  const streetByWidth = await countStreetByWidth();
   const candidateCount = candidateByPosition
     .map((item) => item.count)
     .reduce((prev, next) => prev + next);
@@ -23,6 +24,7 @@ async function getStreetStats() {
     candidateCount,
     hiredCount,
     streetCount,
+    streetByWidth,
   };
 }
 
