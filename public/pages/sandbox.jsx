@@ -302,27 +302,27 @@ const Sandbox = () => {
         ></StatsBox>
 
         <StatsBox
-          label="Fun Stat-4"
-          data={totalPosition}
-          link="/admin/resources/Position"
+          label="Total Length"
+          data={streetTotalLength}
+          link="/admin/resources/Street"
           icon="Archive"
           bg="#ce3551"
           color="#FFFFFF"
         ></StatsBox>
 
         <StatsBox
-          label="Fun Stat-5"
-          data={totalCandidate}
-          link="/admin/resources/Candidate"
+          label="Total Width"
+          data={streetTotalWidth}
+          link="/admin/resources/Street"
           icon="ContainerSoftware"
           bg="#54c00b"
           color="#FFFFFF"
         ></StatsBox>
 
         <StatsBox
-          label="Fun Stat-6"
-          data={totalStreet}
-          link="/admin/resources/Candidate?filters.currentStage=HIRED"
+          label="Total Area"
+          data={streetTotalArea}
+          link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"
           color="#FFFFFF"
