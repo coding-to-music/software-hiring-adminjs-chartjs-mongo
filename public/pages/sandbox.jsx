@@ -86,9 +86,9 @@ const Sandbox = () => {
 
   useEffect(() => getStats(), []);
 
-  console.log("nbCandidateByPosition ", nbCandidateByPosition);
+  // console.log("nbCandidateByPosition ", nbCandidateByPosition);
 
-  console.log("nbCandidateByStage ", nbCandidateByStage);
+  // console.log("nbCandidateByStage ", nbCandidateByStage);
 
   function getStats() {
     fetch(`/streetStats`, {
@@ -106,6 +106,9 @@ const Sandbox = () => {
           positionCount,
           candidateCount,
           hiredCount,
+          streetCountMissingLength,
+          streetCountMissingWidth,
+          streetCountMissingArea,  
           streetCount,
           // streetByWidth,
           // streetByWidthBucket,

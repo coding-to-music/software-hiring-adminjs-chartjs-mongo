@@ -10,7 +10,6 @@ Works!
 - send email gmail - done
 - navigation for sandbox
 - navigation for dashboard
-- bar chart does not work
 - add google/GitHub auth to the app
 - Icon logo and favicon
 - deploy to Vercel or GitHub pages
@@ -24,12 +23,13 @@ Dashboard charts
 ## Street
 
 - # complete data
+- # incomplete data
 - missing width
 - missing length
 - area distribution
 - length distribution
 - Heat map with width
-- Heat map with width by length
+- Heat map with width by length or area
 - 
 - 
 - 

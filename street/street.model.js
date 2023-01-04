@@ -53,10 +53,25 @@ const Street = mongoose.model("Street", StreetSchema);
 module.exports = {
   StreetSchema,
   Street,
+  countMissingLength,
+  countMissingWidth,
+  countMissingArea,  
   countStreet,
   countStreetByWidth,
   countStreetByWidthBucket,
 };
+
+async function countMissingLength() {
+  return await Street.count() - 10;
+}
+
+async function countMissingWidth() {
+  return await Street.count() - 20;
+}
+
+async function countMissingArea() {
+  return await Street.count() - 30;
+}
 
 async function countStreet() {
   return await Street.count();
