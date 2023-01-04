@@ -15,6 +15,25 @@ Works!
 - Icon logo and favicon
 - deploy to Vercel or GitHub pages
 
+Dashboard charts
+- Position
+- Email
+- Candidate
+- Interview
+
+## Street
+
+- # complete data
+- missing width
+- missing length
+- area distribution
+- length distribution
+- Heat map with width
+- Heat map with width by length
+- 
+- 
+- 
+
 # Subject and Body are empty in the emails
 
 # 🚀 Use AdminJS to Quickly Build an Administration Web App 🚀

@@ -320,6 +320,226 @@ const Sandbox = () => {
         }}
       >
         <Box
+          width={1 / 6}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Application by position4
+          </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
+          <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          />
+        </Box>
+
+        <Box
+          width={1 / 6}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Recruitment Funnel4
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+        <Box
+          width={1 / 6}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Application by position5
+          </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
+          <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          />
+        </Box>
+
+        <Box
+          width={1 / 6}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Recruitment Funnel5
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+        <Box
+          width={1 / 6}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Application by position6
+          </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
+          <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          />
+        </Box>
+
+        <Box
+          width={1 / 6}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Recruitment Funnel6
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          marginTop: "50px",
+        }}
+      >
+        <Box
+          width={1 / 4}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Application by position2
+          </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
+          <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          />
+        </Box>
+
+        <Box
+          width={1 / 4}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Recruitment Funnel2
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+        <Box
+          width={1 / 4}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Application by position3
+          </Header.H4>
+          {/* <Bar options={options} data={data} /> */}
+          <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          />
+        </Box>
+
+        <Box
+          width={1 / 4}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Recruitment Funnel3
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          marginTop: "50px",
+        }}
+      >
+        <Box
           width={1 / 2}
           variant="card"
           style={{ textAlign: "center", margin: "10px", padding: "18px" }}
