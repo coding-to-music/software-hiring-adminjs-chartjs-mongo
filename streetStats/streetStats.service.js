@@ -8,6 +8,9 @@ const {
   countMissingWidth,
   countMissingArea,
   countStreet,
+  totalLength,
+  totalWidth,
+  totalArea,
   countStreetByWidth,
   countStreetByWidthBucket,
 } = require("../street/street.model");
@@ -20,6 +23,11 @@ async function getStreetStats() {
   const streetCountMissingWidth = await countMissingWidth();
   const streetCountMissingArea = await countMissingArea();
   const streetCount = await countStreet();
+  
+  const streetTotalLength = await totalLength();
+  const streetTotalWidth = await totalWidth();
+  const streetTotalArea = await totalArea();
+
   const streetByWidth = await countStreetByWidth();
   const streetByWidthBucket = await countStreetByWidthBucket();
   const candidateCount = candidateByPosition
@@ -38,6 +46,9 @@ async function getStreetStats() {
     streetCountMissingWidth,
     streetCountMissingArea,  
     streetCount,
+    streetTotalLength,
+    streetTotalWidth,
+    streetTotalArea,  
     streetByWidth,
     streetByWidthBucket,
   };

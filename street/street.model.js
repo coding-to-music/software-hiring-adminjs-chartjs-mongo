@@ -57,9 +57,27 @@ module.exports = {
   countMissingWidth,
   countMissingArea,  
   countStreet,
+  totalLength,
+  totalWidth,
+  totalArea,  
   countStreetByWidth,
   countStreetByWidthBucket,
 };
+
+// candidateByPosition,
+// candidateByStage,
+// positionCount,
+// candidateCount,
+// hiredCount,
+// streetCountMissingLength,
+// streetCountMissingWidth,
+// streetCountMissingArea,  
+// streetCount,
+// streetTotalLength,
+// streetTotalWidth,
+// streetTotalArea,  
+// streetByWidth,
+// streetByWidthBucket,
 
 async function countMissingLength() {
   return await Street.count() - 10;
@@ -75,6 +93,18 @@ async function countMissingArea() {
 
 async function countStreet() {
   return await Street.count();
+}
+
+async function totalLength() {
+  return await Street.count() - 40;
+}
+
+async function totalWidth() {
+  return await Street.count() - 50;
+}
+
+async function totalArea() {
+  return await Street.count() - 60;
 }
 
 async function countStreetByWidth() {

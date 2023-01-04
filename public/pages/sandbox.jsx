@@ -65,11 +65,17 @@ const Sandbox = () => {
   const [totalCandidate, setTotalCandidate] = useState(0);
   const [totalHired, setTotalHired] = useState(0);
   const [totalStreet, setTotalStreet] = useState(0);
-  // const [totalStreet, setTotalStreet] = useState(0);
-  // const [totalStreet, setTotalStreet] = useState(0);
-  // streetByWidth,
-  // streetByWidthBucket,
+  const [streetCountMissingLength, setStreetCountMissingLength] = useState(0);
+  const [streetCountMissingWidth, setStreetCountMissingWidth] = useState(0);
+  const [streetCountMissingArea, setStreetCountMissingArea ] = useState(0);
 
+  const [streetTotalLength, setStreetTotalLength] = useState(0);
+  const [streetTotalWidth, setStreetTotalWidth] = useState(0);
+  const [streetTotalArea, setStreetTotalArea ] = useState(0);
+
+  // const [streetByWidth, setStreetByWidth] = useState([]);
+  // const [streetByWidthBucket, setStreetByWidthBucket ] = useState([]);
+            
   const [positionsName, setPositionsName] = useState([]);
   const [nbCandidateByPosition, setNbCandidateByPosition] = useState([]);
   const [nbCandidateByStage, setNbCandidatByStage] = useState([]);
@@ -110,6 +116,9 @@ const Sandbox = () => {
           streetCountMissingWidth,
           streetCountMissingArea,  
           streetCount,
+          streetTotalLength,
+          streetTotalWidth,
+          streetTotalArea,  
           // streetByWidth,
           // streetByWidthBucket,
         } = data;
@@ -118,6 +127,9 @@ const Sandbox = () => {
         setTotalCandidate(candidateCount);
         setTotalHired(hiredCount);
         setTotalStreet(streetCount);
+        setStreetCountMissingLength;
+        setStreetCountMissingWidth;
+        setStreetCountMissingArea; 
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
@@ -260,27 +272,27 @@ const Sandbox = () => {
         }}
       >
         <StatsBox
-          label="Fun Stat-1"
-          data={totalPosition}
-          link="/admin/resources/Position"
+          label="Missing Length"
+          data={streetCountMissingLength}
+          link="/admin/resources/Street"
           icon="Archive"
           bg="#ce3551"
           color="#FFFFFF"
         ></StatsBox>
 
         <StatsBox
-          label="Fun Stat-2"
-          data={totalCandidate}
-          link="/admin/resources/Candidate"
+          label="Missing Width"
+          data={streetCountMissingWidth}
+          link="/admin/resources/Street"
           icon="ContainerSoftware"
           bg="#54c00b"
           color="#FFFFFF"
         ></StatsBox>
 
         <StatsBox
-          label="Fun Stat-3"
-          data={totalStreet}
-          link="/admin/resources/Candidate?filters.currentStage=HIRED"
+          label="Missing Area"
+          data={streetCountMissingArea}
+          link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"
           color="#FFFFFF"
