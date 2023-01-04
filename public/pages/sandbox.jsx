@@ -126,10 +126,13 @@ const Sandbox = () => {
         setTotalPosition(positionCount);
         setTotalCandidate(candidateCount);
         setTotalHired(hiredCount);
+        setStreetCountMissingLength(streetCountMissingLength);
+        setStreetCountMissingWidth(streetCountMissingWidth);
+        setStreetCountMissingArea(streetCountMissingArea); 
         setTotalStreet(streetCount);
-        setStreetCountMissingLength;
-        setStreetCountMissingWidth;
-        setStreetCountMissingArea; 
+        setStreetTotalLength(streetTotalLength);
+        setStreetTotalWidth(streetTotalWidth);
+        setStreetTotalArea(streetTotalArea); 
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
