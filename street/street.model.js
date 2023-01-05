@@ -142,6 +142,14 @@ async function totalLength() {
 }
 
 async function totalWidth() {
+  // return Street.aggregate([
+  //   {
+  //     $group: {
+  //       _id: null,
+  //       sum: { $sum: "width" },
+  //     },
+  //   },
+  // ]);
   return await Street.find({ width: { $gt: 0 } }).count();
 }
 
