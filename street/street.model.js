@@ -55,11 +55,11 @@ module.exports = {
   Street,
   countMissingLength,
   countMissingWidth,
-  countMissingArea,  
+  countMissingArea,
   countStreet,
   totalLength,
   totalWidth,
-  totalArea,  
+  totalArea,
   countStreetByWidth,
   countStreetByWidthBucket,
 };
@@ -71,24 +71,51 @@ module.exports = {
 // hiredCount,
 // streetCountMissingLength,
 // streetCountMissingWidth,
-// streetCountMissingArea,  
+// streetCountMissingArea,
 // streetCount,
 // streetTotalLength,
 // streetTotalWidth,
-// streetTotalArea,  
+// streetTotalArea,
 // streetByWidth,
 // streetByWidthBucket,
 
+const sumColumn = async (collection, column, where) => {
+  const pipeline = [
+    {
+      $match: where,
+    },
+    {
+      $group: {
+        _id: null,
+        sum: { $sum: `$${column}` },
+      },
+    },
+  ];
+
+  // const [result] = await collection.aggregate(pipeline).toArray();
+  const cursor = collection.aggregate(pipeline);
+
+  // const [result] = cursor.toArray();
+
+  // return result.sum;
+  return 123;
+};
+
+// Example usage
+// const total = await sumColumn(Street, "streetLength", { width: 30 });
+// console.log(total);
+
 async function countMissingLength() {
-  return await Street.count() - 10;
+  return await sumColumn(Street, "streetLength", { width: 30 });
+  // return (await Street.count()) - 10;
 }
 
 async function countMissingWidth() {
-  return await Street.count() - 20;
+  return (await Street.count()) - 20;
 }
 
 async function countMissingArea() {
-  return await Street.count() - 30;
+  return (await Street.count()) - 30;
 }
 
 async function countStreet() {
@@ -96,15 +123,15 @@ async function countStreet() {
 }
 
 async function totalLength() {
-  return await Street.count() - 40;
+  return (await Street.count()) - 40;
 }
 
 async function totalWidth() {
-  return await Street.count() - 50;
+  return (await Street.count()) - 50;
 }
 
 async function totalArea() {
-  return await Street.count() - 60;
+  return (await Street.count()) - 60;
 }
 
 async function countStreetByWidth() {
