@@ -65,17 +65,17 @@ const Sandbox = () => {
   const [totalCandidate, setTotalCandidate] = useState(0);
   const [totalHired, setTotalHired] = useState(0);
   const [totalStreet, setTotalStreet] = useState(0);
-  const [streetCountMissingLength, setStreetCountMissingLength] = useState(0);
-  const [streetCountMissingWidth, setStreetCountMissingWidth] = useState(0);
-  const [streetCountMissingArea, setStreetCountMissingArea ] = useState(0);
+  const [streetCountHasLength, setStreetCountHasLength] = useState(0);
+  const [streetCountHasWidth, setStreetCountHasWidth] = useState(0);
+  const [streetCountHasArea, setStreetCountHasArea] = useState(0);
 
   const [streetTotalLength, setStreetTotalLength] = useState(0);
   const [streetTotalWidth, setStreetTotalWidth] = useState(0);
-  const [streetTotalArea, setStreetTotalArea ] = useState(0);
+  const [streetTotalArea, setStreetTotalArea] = useState(0);
 
   // const [streetByWidth, setStreetByWidth] = useState([]);
   // const [streetByWidthBucket, setStreetByWidthBucket ] = useState([]);
-            
+
   const [positionsName, setPositionsName] = useState([]);
   const [nbCandidateByPosition, setNbCandidateByPosition] = useState([]);
   const [nbCandidateByStage, setNbCandidatByStage] = useState([]);
@@ -112,13 +112,13 @@ const Sandbox = () => {
           positionCount,
           candidateCount,
           hiredCount,
-          streetCountMissingLength,
-          streetCountMissingWidth,
-          streetCountMissingArea,  
+          streetCountHasLength,
+          streetCountHasWidth,
+          streetCountHasArea,
           streetCount,
           streetTotalLength,
           streetTotalWidth,
-          streetTotalArea,  
+          streetTotalArea,
           // streetByWidth,
           // streetByWidthBucket,
         } = data;
@@ -126,13 +126,13 @@ const Sandbox = () => {
         setTotalPosition(positionCount);
         setTotalCandidate(candidateCount);
         setTotalHired(hiredCount);
-        setStreetCountMissingLength(streetCountMissingLength);
-        setStreetCountMissingWidth(streetCountMissingWidth);
-        setStreetCountMissingArea(streetCountMissingArea); 
+        setStreetCountHasLength(streetCountHasLength);
+        setStreetCountHasWidth(streetCountHasWidth);
+        setStreetCountHasArea(streetCountHasArea);
         setTotalStreet(streetCount);
         setStreetTotalLength(streetTotalLength);
         setStreetTotalWidth(streetTotalWidth);
-        setStreetTotalArea(streetTotalArea); 
+        setStreetTotalArea(streetTotalArea);
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
@@ -275,8 +275,8 @@ const Sandbox = () => {
         }}
       >
         <StatsBox
-          label="Missing Length"
-          data={streetCountMissingLength}
+          label="Has Length"
+          data={streetCountHasLength}
           link="/admin/resources/Street"
           icon="Archive"
           bg="#ce3551"
@@ -284,8 +284,8 @@ const Sandbox = () => {
         ></StatsBox>
 
         <StatsBox
-          label="Missing Width"
-          data={streetCountMissingWidth}
+          label="Has Width"
+          data={streetCountHasWidth}
           link="/admin/resources/Street"
           icon="ContainerSoftware"
           bg="#54c00b"
@@ -293,8 +293,8 @@ const Sandbox = () => {
         ></StatsBox>
 
         <StatsBox
-          label="Missing Area"
-          data={streetCountMissingArea}
+          label="Has Area"
+          data={streetCountHasArea}
           link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"

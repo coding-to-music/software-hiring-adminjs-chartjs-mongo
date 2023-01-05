@@ -53,9 +53,9 @@ const Street = mongoose.model("Street", StreetSchema);
 module.exports = {
   StreetSchema,
   Street,
-  countMissingLength,
-  countMissingWidth,
-  countMissingArea,
+  countHasLength,
+  countHasWidth,
+  countHasArea,
   countStreet,
   totalLength,
   totalWidth,
@@ -103,7 +103,6 @@ const sumColumn = async (collection, column, where) => {
 
 // Example usage
 // const total = await sumColumn(Street, "streetLength", { width: 30 });
-// console.log(total);
 
 function sumColumnTwo(collection, columnToSum, otherColumn, otherColumnValue) {
   return collection.aggregate([
@@ -121,24 +120,16 @@ function sumColumnTwo(collection, columnToSum, otherColumn, otherColumnValue) {
   ]);
 }
 
-async function countMissingLength() {
+async function countHasLength() {
   return await Street.find({ streetLength: { $gt: 0 } }).count();
-  // return await sumColumnTwo(Street, "streetLength", "streetLength", 0);
-  // return await sumColumn(Street, "streetLength", { width: 30 });
-  // return (await Street.count()) - 10;
 }
 
-async function countMissingWidth() {
+async function countHasWidth() {
   return await Street.find({ width: { $gt: 0 } }).count();
-  // return await sumColumn(Street, "width", { width: 0 });
-  // db.collection.find({ column: { $gt: 0 } }).count()
-  // return (await Street.count()) - 20;
 }
 
-async function countMissingArea() {
+async function countHasArea() {
   return await Street.find({ area: { $gt: 0 } }).count();
-  // return await sumColumn(Street, "area", { area: 0 });
-  // return (await Street.count()) - 30;
 }
 
 async function countStreet() {
