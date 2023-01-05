@@ -105,18 +105,39 @@ const sumColumn = async (collection, column, where) => {
 // const total = await sumColumn(Street, "streetLength", { width: 30 });
 // console.log(total);
 
+function sumColumnTwo(collection, columnToSum, otherColumn, otherColumnValue) {
+  return collection.aggregate([
+    {
+      $match: {
+        [otherColumn]: { $gt: otherColumnValue },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        total: { $sum: `$columnToSum` },
+      },
+    },
+  ]);
+}
+
 async function countMissingLength() {
-  return await sumColumn(Street, "streetLength", { width: 30 });
+  return await Street.find({ streetLength: { $gt: 0 } }).count();
+  // return await sumColumnTwo(Street, "streetLength", "streetLength", 0);
+  // return await sumColumn(Street, "streetLength", { width: 30 });
   // return (await Street.count()) - 10;
 }
 
 async function countMissingWidth() {
-  return await sumColumn(Street, "width", { width: 0 });
+  return await Street.find({ width: { $gt: 0 } }).count();
+  // return await sumColumn(Street, "width", { width: 0 });
+  // db.collection.find({ column: { $gt: 0 } }).count()
   // return (await Street.count()) - 20;
 }
 
 async function countMissingArea() {
-  return await sumColumn(Street, "area", { area: 0 });
+  return await Street.find({ area: { $gt: 0 } }).count();
+  // return await sumColumn(Street, "area", { area: 0 });
   // return (await Street.count()) - 30;
 }
 
@@ -130,8 +151,7 @@ async function totalLength() {
 }
 
 async function totalWidth() {
-  return await sumColumn(Street, "width", { width: 30 });
-  // return (await Street.count()) - 50;
+  return await Street.find({ width: { $gt: 0 } }).count();
 }
 
 async function totalArea() {
