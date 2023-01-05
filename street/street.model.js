@@ -111,11 +111,13 @@ async function countMissingLength() {
 }
 
 async function countMissingWidth() {
-  return (await Street.count()) - 20;
+  return await sumColumn(Street, "width", { width: 0 });
+  // return (await Street.count()) - 20;
 }
 
 async function countMissingArea() {
-  return (await Street.count()) - 30;
+  return await sumColumn(Street, "area", { area: 0 });
+  // return (await Street.count()) - 30;
 }
 
 async function countStreet() {
@@ -123,15 +125,18 @@ async function countStreet() {
 }
 
 async function totalLength() {
-  return (await Street.count()) - 40;
+  return await sumColumn(Street, "streetLength", { width: 30 });
+  // return (await Street.count()) - 40;
 }
 
 async function totalWidth() {
-  return (await Street.count()) - 50;
+  return await sumColumn(Street, "width", { width: 30 });
+  // return (await Street.count()) - 50;
 }
 
 async function totalArea() {
-  return (await Street.count()) - 60;
+  return await sumColumn(Street, "area", { area: 30 });
+  // return (await Street.count()) - 60;
 }
 
 async function countStreetByWidth() {
