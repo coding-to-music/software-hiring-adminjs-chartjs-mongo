@@ -15,18 +15,30 @@ import { Box, Header } from "@adminjs/design-system";
 import { useEffect, useState } from "react";
 
 import { Bar } from "react-chartjs-2";
-// import { Bar } from "react-chartjs-2";
 import { FunnelChart } from "react-funnel-pipeline";
 import StatsBox from "../custom-components/stats-box";
-// import { faker } from "faker";
+import Card from "../custom-components/card-color";
 import { faker } from "@faker-js/faker/locale/en_US";
 
-function setRandomBackgroundColor(card) {
-  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  card.style.backgroundColor = randomColor;
-}
+// function setRandomBackgroundColor(card) {
+//   const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+//   const randomColor = colors[Math.floor(Math.random() * colors.length)];
+//   card.style.backgroundColor = randomColor;
+// }
 
+// To use the setRandomBackgroundColor function in a div where the value looks like bg=, you can do the following:
+
+// function Card(props) {
+//   return (
+//     <div
+//       className="card"
+//       bg={() => setRandomBackgroundColor(this)}
+//       ref={(card) => this.card = card}
+//     >
+//       {props.children}
+//     </div>
+//   );
+// }
 // https://react-chartjs-2.js.org/faq/registered-scale/
 
 const options = {
