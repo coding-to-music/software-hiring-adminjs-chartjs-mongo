@@ -21,6 +21,12 @@ import StatsBox from "../custom-components/stats-box";
 // import { faker } from "faker";
 import { faker } from "@faker-js/faker/locale/en_US";
 
+function setRandomBackgroundColor(card) {
+  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  card.style.backgroundColor = randomColor;
+}
+
 // https://react-chartjs-2.js.org/faq/registered-scale/
 
 const options = {
