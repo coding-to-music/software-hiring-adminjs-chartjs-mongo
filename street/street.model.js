@@ -136,28 +136,77 @@ async function countStreet() {
   return await Street.count();
 }
 
+async function getColumnSum(collectionName, columnName) {
+  try {
+     const aggregateResult = collectionName.aggregate([
+        {
+           $group:
+              {
+                 _id: null,
+                 total: { $sum: "$columnName" }
+              }
+        }
+     ]).toArray();
+
+     return (await aggregateResult)[0].total;
+  } catch (error) {
+     console.log(error);
+  }
+}
+
+// const totalLength = await getColumnSum(Street, "streetLength");
+
 async function totalLength() {
+  // return await getColumnSum(Street, "streetLength");
+  // return await Street.find({ streetLength: { $gt: 0 } }).sum();
   return 1
+}
+// return Street.aggregate([
+//     {
+//        $group: {
+//           _id: null,
+//           totalLength: { $sum: "$streetLength" }
+//        }
+//     }
+//  ])
   // return await Street.find({ streetLength: { $gt: 0 } }).sum();
   // return await sumColumn(Street, "streetLength", { width: 30 });
   // return (await Street.count()) - 40;
-}
 
 async function totalWidth() {
+  // return await getColumnSum(Street, "width");
   return 2
-  // return Street.aggregate([
+  // const aggregatorOpts = [
+  //   // count by street by width
   //   {
   //     $group: {
-  //       _id: null,
-  //       sum: { $sum: "width" },
+  //       _id: "$width",
+  //       count: { $sum: 1 },
   //     },
   //   },
-  // ]);
-  // return await Street.find({ width: { $gt: 0 } }).sum();
+  // ];
+
+  // const data = await Street.aggregate(aggregatorOpts).exec();
+
+  // return data;
 }
 
 async function totalArea() {
+  // return await getColumnSum(Street, "area");
   return 3
+  // const aggregatorOpts = [
+  //   // count by street by width
+  //   {
+  //     $group: {
+  //       _id: "$area",
+  //       count: { $sum: 1 },
+  //     },
+  //   },
+  // ];
+
+  // const data = await Street.aggregate(aggregatorOpts).exec();
+
+  // return data;
   // return await Street.find({ area: { $gt: 0 } }).sum();
   // return await sumColumn(Street, "area", { area: 30 });
   // return (await Street.count()) - 60;
