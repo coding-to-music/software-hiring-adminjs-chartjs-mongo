@@ -137,11 +137,14 @@ async function countStreet() {
 }
 
 async function totalLength() {
-  return await sumColumn(Street, "streetLength", { width: 30 });
+  return 1
+  // return await Street.find({ streetLength: { $gt: 0 } }).sum();
+  // return await sumColumn(Street, "streetLength", { width: 30 });
   // return (await Street.count()) - 40;
 }
 
 async function totalWidth() {
+  return 2
   // return Street.aggregate([
   //   {
   //     $group: {
@@ -150,11 +153,13 @@ async function totalWidth() {
   //     },
   //   },
   // ]);
-  return await Street.find({ width: { $gt: 0 } }).count();
+  // return await Street.find({ width: { $gt: 0 } }).sum();
 }
 
 async function totalArea() {
-  return await sumColumn(Street, "area", { area: 30 });
+  return 3
+  // return await Street.find({ area: { $gt: 0 } }).sum();
+  // return await sumColumn(Street, "area", { area: 30 });
   // return (await Street.count()) - 60;
 }
 
