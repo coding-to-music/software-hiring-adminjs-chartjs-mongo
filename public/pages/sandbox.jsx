@@ -324,7 +324,7 @@ const Sandbox = () => {
       >
         <StatsBox
           label="Average Length (Feet)"
-          data={streetaverageLengthFeet}
+          data={streetaverageLengthFeet.toFixed(1).toLocaleString()}
           link="/admin/resources/Street"
           icon="Archive"
           bg="#ce3551"
@@ -333,7 +333,7 @@ const Sandbox = () => {
 
         <StatsBox
           label="Average Width (Feet)"
-          data={streetaverageWidthFeet}
+          data={streetaverageWidthFeet.toFixed(1).toLocaleString()}
           link="/admin/resources/Street"
           icon="ContainerSoftware"
           bg="#54c00b"
@@ -342,7 +342,7 @@ const Sandbox = () => {
 
         <StatsBox
           label="Average Area (Acres)"
-          data={streetaverageAreaAcres}
+          data={streetaverageAreaAcres.toFixed(1).toLocaleString()}
           link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"
@@ -357,8 +357,8 @@ const Sandbox = () => {
         }}
       >
         <StatsBox
-          label="Total Length"
-          data={streetTotalLength}
+          label="Total Length (Feet)"
+          data={streetTotalLength.toLocaleString()}
           link="/admin/resources/Street"
           icon="Archive"
           bg="#ce3551"
@@ -366,8 +366,8 @@ const Sandbox = () => {
         ></StatsBox>
 
         <StatsBox
-          label="Total Width"
-          data={streetTotalWidth}
+          label="Total Width (Feet)"
+          data={streetTotalWidth.toLocaleString()}
           link="/admin/resources/Street"
           icon="ContainerSoftware"
           bg="#54c00b"
@@ -375,8 +375,8 @@ const Sandbox = () => {
         ></StatsBox>
 
         <StatsBox
-          label="Total Area"
-          data={streetTotalArea}
+          label="Total Area (Sq Feet)"
+          data={streetTotalArea.toLocaleString()}
           link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"
@@ -393,7 +393,7 @@ const Sandbox = () => {
       >
         <StatsBox
           label="Length In Miles"
-          data={streetlengthMiles}
+          data={streetlengthMiles.toFixed(1).toLocaleString()}
           link="/admin/resources/Street"
           icon="Archive"
           bg="#ce3551"
@@ -402,7 +402,7 @@ const Sandbox = () => {
 
         <StatsBox
           label="Width In Miles"
-          data={streetwidthMiles}
+          data={streetwidthMiles.toFixed(1).toLocaleString()}
           link="/admin/resources/Street"
           icon="ContainerSoftware"
           bg="#54c00b"
@@ -411,7 +411,7 @@ const Sandbox = () => {
 
         <StatsBox
           label="Area Acres"
-          data={streetareaAcres}
+          data={streetareaAcres.toFixed(1).toLocaleString()}
           link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"
