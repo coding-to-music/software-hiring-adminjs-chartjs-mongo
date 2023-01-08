@@ -15,31 +15,10 @@ import { Box, Header } from "@adminjs/design-system";
 import { useEffect, useState } from "react";
 
 import { Bar } from "react-chartjs-2";
+// import Card from "../custom-components/card-color";
 import { FunnelChart } from "react-funnel-pipeline";
 import StatsBox from "../custom-components/stats-box";
-import Card from "../custom-components/card-color";
 import { faker } from "@faker-js/faker/locale/en_US";
-
-// function setRandomBackgroundColor(card) {
-//   const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-//   const randomColor = colors[Math.floor(Math.random() * colors.length)];
-//   card.style.backgroundColor = randomColor;
-// }
-
-// To use the setRandomBackgroundColor function in a div where the value looks like bg=, you can do the following:
-
-// function Card(props) {
-//   return (
-//     <div
-//       className="card"
-//       bg={() => setRandomBackgroundColor(this)}
-//       ref={(card) => this.card = card}
-//     >
-//       {props.children}
-//     </div>
-//   );
-// }
-// https://react-chartjs-2.js.org/faq/registered-scale/
 
 const options = {
   responsive: true,
@@ -72,12 +51,6 @@ const data = {
   ],
 };
 
-// Chart.register(CategoryScale);
-
-// export function App() {
-//   return <Bar options={options} data={data} />;
-// }
-
 const Sandbox = () => {
   const [totalPosition, setTotalPosition] = useState(0);
   const [totalCandidate, setTotalCandidate] = useState(0);
@@ -90,6 +63,14 @@ const Sandbox = () => {
   const [streetTotalLength, setStreetTotalLength] = useState(0);
   const [streetTotalWidth, setStreetTotalWidth] = useState(0);
   const [streetTotalArea, setStreetTotalArea] = useState(0);
+
+  const [streetlengthMiles, setlengthMiles] = useState(0);
+  const [streetwidthMiles, setwidthMiles] = useState(0);
+  const [streetareaAcres, setareaAcres] = useState(0);
+
+  const [streetaverageLengthFeet, setstreetaverageLengthFeet] = useState(0);
+  const [streetaverageWidthFeet, setstreetaverageWidthFeet] = useState(0);
+  const [streetaverageAreaAcres, setstreetaverageAreaAcres] = useState(0);
 
   // const [streetByWidth, setStreetByWidth] = useState([]);
   // const [streetByWidthBucket, setStreetByWidthBucket ] = useState([]);
@@ -137,9 +118,18 @@ const Sandbox = () => {
           streetTotalLength,
           streetTotalWidth,
           streetTotalArea,
+          streetlengthMiles,
+          streetwidthMiles,
+          streetareaAcres,
+
           // streetByWidth,
           // streetByWidthBucket,
         } = data;
+
+        const streetaverageLengthFeet =
+          streetTotalLength / streetCountHasLength;
+        const streetaverageWidthFeet = streetTotalWidth / streetCountHasWidth;
+        const streetaverageAreaAcres = streetareaAcres / streetCountHasArea;
 
         setTotalPosition(positionCount);
         setTotalCandidate(candidateCount);
@@ -151,6 +141,12 @@ const Sandbox = () => {
         setStreetTotalLength(streetTotalLength);
         setStreetTotalWidth(streetTotalWidth);
         setStreetTotalArea(streetTotalArea);
+        setlengthMiles(streetlengthMiles);
+        setwidthMiles(streetwidthMiles);
+        setareaAcres(streetareaAcres);
+        setstreetaverageLengthFeet(streetaverageLengthFeet);
+        setstreetaverageWidthFeet(streetaverageWidthFeet);
+        setstreetaverageAreaAcres(streetaverageAreaAcres);
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
@@ -318,7 +314,48 @@ const Sandbox = () => {
           bg="#b9c970"
           color="#FFFFFF"
         ></StatsBox>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StatsBox
+          label="Average Length (Feet)"
+          data={streetaverageLengthFeet}
+          link="/admin/resources/Street"
+          icon="Archive"
+          bg="#ce3551"
+          color="#FFFFFF"
+        ></StatsBox>
 
+        <StatsBox
+          label="Average Width (Feet)"
+          data={streetaverageWidthFeet}
+          link="/admin/resources/Street"
+          icon="ContainerSoftware"
+          bg="#54c00b"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Average Area (Acres)"
+          data={streetaverageAreaAcres}
+          link="/admin/resources/Street"
+          icon="Settings"
+          bg="#b9c970"
+          color="#FFFFFF"
+        ></StatsBox>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
         <StatsBox
           label="Total Length"
           data={streetTotalLength}
@@ -340,6 +377,41 @@ const Sandbox = () => {
         <StatsBox
           label="Total Area"
           data={streetTotalArea}
+          link="/admin/resources/Street"
+          icon="Settings"
+          bg="#b9c970"
+          color="#FFFFFF"
+        ></StatsBox>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StatsBox
+          label="Length In Miles"
+          data={streetlengthMiles}
+          link="/admin/resources/Street"
+          icon="Archive"
+          bg="#ce3551"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Width In Miles"
+          data={streetwidthMiles}
+          link="/admin/resources/Street"
+          icon="ContainerSoftware"
+          bg="#54c00b"
+          color="#FFFFFF"
+        ></StatsBox>
+
+        <StatsBox
+          label="Area Acres"
+          data={streetareaAcres}
           link="/admin/resources/Street"
           icon="Settings"
           bg="#b9c970"

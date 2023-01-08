@@ -52,6 +52,9 @@ module.exports = {
   totalLength,
   totalWidth,
   totalArea,
+  lengthMiles,
+  widthMiles,
+  areaAcres,
   countStreetByWidth,
   countStreetByWidthBucket,
 };
@@ -91,6 +94,27 @@ async function totalArea() {
     { $group: { _id: null, aggregateValue: { $sum: "$area" } } },
   ]);
   return data[0].aggregateValue;
+}
+
+async function lengthMiles() {
+  const data = await Street.aggregate([
+    { $group: { _id: null, aggregateValue: { $sum: "$streetLength" } } },
+  ]);
+  return data[0].aggregateValue / 5280;
+}
+
+async function widthMiles() {
+  const data = await Street.aggregate([
+    { $group: { _id: null, aggregateValue: { $sum: "$width" } } },
+  ]);
+  return data[0].aggregateValue / 5280;
+}
+
+async function areaAcres() {
+  const data = await Street.aggregate([
+    { $group: { _id: null, aggregateValue: { $sum: "$area" } } },
+  ]);
+  return data[0].aggregateValue / 43560;
 }
 
 async function countStreetByWidth() {
