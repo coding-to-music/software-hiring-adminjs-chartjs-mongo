@@ -1,11 +1,5 @@
-// const mongoose = require('mongoose');
-// const PositionSchema = new mongoose.Schema({
-//     name: { type: String },
-// });
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// const bcrypt = require("bcrypt");
 
 const StreetSchema = new Schema({
   name: {
@@ -48,8 +42,6 @@ const StreetSchema = new Schema({
 
 const Street = mongoose.model("Street", StreetSchema);
 
-// module.exports = Street;
-
 module.exports = {
   StreetSchema,
   Street,
@@ -63,62 +55,6 @@ module.exports = {
   countStreetByWidth,
   countStreetByWidthBucket,
 };
-
-// candidateByPosition,
-// candidateByStage,
-// positionCount,
-// candidateCount,
-// hiredCount,
-// streetCountMissingLength,
-// streetCountMissingWidth,
-// streetCountMissingArea,
-// streetCount,
-// streetTotalLength,
-// streetTotalWidth,
-// streetTotalArea,
-// streetByWidth,
-// streetByWidthBucket,
-
-const sumColumn = async (collection, column, where) => {
-  const pipeline = [
-    {
-      $match: where,
-    },
-    {
-      $group: {
-        _id: null,
-        sum: { $sum: `$${column}` },
-      },
-    },
-  ];
-
-  // const [result] = await collection.aggregate(pipeline).toArray();
-  const cursor = collection.aggregate(pipeline);
-
-  // const [result] = cursor.toArray();
-
-  // return result.sum;
-  return 123;
-};
-
-// Example usage
-// const total = await sumColumn(Street, "streetLength", { width: 30 });
-
-function sumColumnTwo(collection, columnToSum, otherColumn, otherColumnValue) {
-  return collection.aggregate([
-    {
-      $match: {
-        [otherColumn]: { $gt: otherColumnValue },
-      },
-    },
-    {
-      $group: {
-        _id: null,
-        total: { $sum: `$columnToSum` },
-      },
-    },
-  ]);
-}
 
 async function countHasLength() {
   return await Street.find({ streetLength: { $gt: 0 } }).count();
@@ -136,85 +72,29 @@ async function countStreet() {
   return await Street.count();
 }
 
-async function getColumnSum(collectionName, columnName) {
-  try {
-     const aggregateResult = collectionName.aggregate([
-        {
-           $group:
-              {
-                 _id: null,
-                 total: { $sum: "$columnName" }
-              }
-        }
-     ]).toArray();
-
-     return (await aggregateResult)[0].total;
-  } catch (error) {
-     console.log(error);
-  }
-}
-
-// const totalLength = await getColumnSum(Street, "streetLength");
-
 async function totalLength() {
-  // return await getColumnSum(Street, "streetLength");
-  // return await Street.find({ streetLength: { $gt: 0 } }).sum();
-  return 1
+  const data = await Street.aggregate([
+    { $group: { _id: null, aggregateValue: { $sum: "$streetLength" } } },
+  ]);
+  return data[0].aggregateValue;
 }
-// return Street.aggregate([
-//     {
-//        $group: {
-//           _id: null,
-//           totalLength: { $sum: "$streetLength" }
-//        }
-//     }
-//  ])
-  // return await Street.find({ streetLength: { $gt: 0 } }).sum();
-  // return await sumColumn(Street, "streetLength", { width: 30 });
-  // return (await Street.count()) - 40;
 
 async function totalWidth() {
-  // return await getColumnSum(Street, "width");
-  return 2
-  // const aggregatorOpts = [
-  //   // count by street by width
-  //   {
-  //     $group: {
-  //       _id: "$width",
-  //       count: { $sum: 1 },
-  //     },
-  //   },
-  // ];
-
-  // const data = await Street.aggregate(aggregatorOpts).exec();
-
-  // return data;
+  const data = await Street.aggregate([
+    { $group: { _id: null, aggregateValue: { $sum: "$width" } } },
+  ]);
+  return data[0].aggregateValue;
 }
 
 async function totalArea() {
-  // return await getColumnSum(Street, "area");
-  return 3
-  // const aggregatorOpts = [
-  //   // count by street by width
-  //   {
-  //     $group: {
-  //       _id: "$area",
-  //       count: { $sum: 1 },
-  //     },
-  //   },
-  // ];
-
-  // const data = await Street.aggregate(aggregatorOpts).exec();
-
-  // return data;
-  // return await Street.find({ area: { $gt: 0 } }).sum();
-  // return await sumColumn(Street, "area", { area: 30 });
-  // return (await Street.count()) - 60;
+  const data = await Street.aggregate([
+    { $group: { _id: null, aggregateValue: { $sum: "$area" } } },
+  ]);
+  return data[0].aggregateValue;
 }
 
 async function countStreetByWidth() {
   const aggregatorOpts = [
-    // count by street by width
     {
       $group: {
         _id: "$width",
@@ -249,17 +129,3 @@ async function countStreetByWidthBucket() {
 
   return data;
 }
-
-// db.collection.aggregate([
-//   {
-//     $bucket: {
-//       groupBy: "$value",
-//       boundaries: [0, 50, 100],
-//       default: "other",
-//       output: {
-//         count: { $sum: 1 },
-//         total: { $sum: "$value" },
-//       },
-//     },
-//   },
-// ]);
