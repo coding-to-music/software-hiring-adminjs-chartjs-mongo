@@ -15,6 +15,7 @@ Works!
 - deploy to Vercel or GitHub pages
 
 Dashboard charts
+
 - Position
 - Email
 - Candidate
@@ -24,15 +25,15 @@ Dashboard charts
 
 - # complete data
 - # incomplete data
-- missing width
-- missing length
 - area distribution
+- width distribution
 - length distribution
 - Heat map with width
 - Heat map with width by length or area
-- 
-- 
-- 
+-
+- Available combos
+-
+-
 
 # Subject and Body are empty in the emails
 
