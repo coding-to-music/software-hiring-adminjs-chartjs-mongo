@@ -55,6 +55,14 @@ module.exports = {
   lengthMiles,
   widthMiles,
   areaAcres,
+  countByWidth,
+  countByWidthBucket,
+  sumWidthbyLength,
+  sumWidthbyLengthBucket,
+  // countByLength,
+  // countByArea,
+  // sumWidthbyLength,
+  // sumWidthbyArea,
   countStreetByWidth,
   countStreetByWidthBucket,
 };
@@ -116,6 +124,70 @@ async function areaAcres() {
   ]);
   return data[0].aggregateValue / 43560;
 }
+
+// BEGIN CHANGES
+
+async function countByWidth() {
+  const aggregatorOpts = [
+    {
+      $group: {
+        _id: "$width",
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+  const data = await Street.aggregate(aggregatorOpts).exec();
+
+  return data;
+}
+
+async function countByWidthBucket() {
+  const aggregatorOpts = [
+    {
+      $group: {
+        _id: "$width",
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+  const data = await Street.aggregate(aggregatorOpts).exec();
+
+  return data;
+}
+
+async function sumWidthbyLength() {
+  const aggregatorOpts = [
+    {
+      $group: {
+        _id: "$width",
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+  const data = await Street.aggregate(aggregatorOpts).exec();
+
+  return data;
+}
+
+async function sumWidthbyLengthBucket() {
+  const aggregatorOpts = [
+    {
+      $group: {
+        _id: "$width",
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+  const data = await Street.aggregate(aggregatorOpts).exec();
+
+  return data;
+}
+
+// END CHANGES
 
 async function countStreetByWidth() {
   const aggregatorOpts = [

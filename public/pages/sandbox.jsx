@@ -19,6 +19,15 @@ import { Bar } from "react-chartjs-2";
 import { FunnelChart } from "react-funnel-pipeline";
 import StatsBox from "../custom-components/stats-box";
 import { faker } from "@faker-js/faker/locale/en_US";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
 const options = {
   responsive: true,
@@ -121,6 +130,10 @@ const Sandbox = () => {
           streetlengthMiles,
           streetwidthMiles,
           streetareaAcres,
+          streetcountByWidth,
+          streetcountByWidthBucket,
+          streetsumWidthbyLength,
+          streetsumWidthbyLengthBucket,
 
           // streetByWidth,
           // streetByWidthBucket,
@@ -147,6 +160,11 @@ const Sandbox = () => {
         setstreetaverageLengthFeet(streetaverageLengthFeet);
         setstreetaverageWidthFeet(streetaverageWidthFeet);
         setstreetaverageAreaAcres(streetaverageAreaAcres);
+
+        setstreetcountByWidth(streetcountByWidth);
+        setstreetcountByWidthBucket(streetcountByWidthBucket);
+        setstreetsumWidthbyLength(streetsumWidthbyLength);
+        setstreetsumWidthbyLengthBucket(streetsumWidthbyLengthBucket);
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
@@ -243,6 +261,31 @@ const Sandbox = () => {
       ],
     },
   };
+
+  // const streetcountByWidth = await countByWidth();
+  // const streetcountByWidthBucket = await countByWidthBucket();
+  // const streetsumWidthbyLength = await sumWidthbyLength();
+  // const streetsumWidthbyLengthBucket = await sumWidthbyLengthBucket();
+
+  const anotherdata = [
+    { width: 10, count: 5 },
+    { width: 20, count: 3 },
+    { width: 30, count: 2 },
+    // ...
+  ];
+
+  function DistributionChart() {
+    return (
+      <BarChart width={500} height={300} data={anotherdata}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="width" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="count" fill="#8884d8" />
+      </BarChart>
+    );
+  }
 
   return !loading ? (
     <div>

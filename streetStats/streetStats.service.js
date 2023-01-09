@@ -14,6 +14,10 @@ const {
   lengthMiles,
   widthMiles,
   areaAcres,
+  countByWidth,
+  countByWidthBucket,
+  sumWidthbyLength,
+  sumWidthbyLengthBucket,
   countStreetByWidth,
   countStreetByWidthBucket,
 } = require("../street/street.model");
@@ -34,6 +38,11 @@ async function getStreetStats() {
   const streetlengthMiles = await lengthMiles();
   const streetwidthMiles = await widthMiles();
   const streetareaAcres = await areaAcres();
+
+  const streetcountByWidth = await countByWidth();
+  const streetcountByWidthBucket = await countByWidthBucket();
+  const streetsumWidthbyLength = await sumWidthbyLength();
+  const streetsumWidthbyLengthBucket = await sumWidthbyLengthBucket();
 
   const streetByWidth = await countStreetByWidth();
   const streetByWidthBucket = await countStreetByWidthBucket();
@@ -59,6 +68,10 @@ async function getStreetStats() {
     streetlengthMiles,
     streetwidthMiles,
     streetareaAcres,
+    streetcountByWidth,
+    streetcountByWidthBucket,
+    streetsumWidthbyLength,
+    streetsumWidthbyLengthBucket,
     streetByWidth,
     streetByWidthBucket,
   };
