@@ -72,6 +72,12 @@ const Sandbox = () => {
   const [streetaverageWidthFeet, setstreetaverageWidthFeet] = useState(0);
   const [streetaverageAreaAcres, setstreetaverageAreaAcres] = useState(0);
 
+  const [streetcountByWidth, setstreetcountByWidth] = useState(0);
+  const [streetcountByWidthBucket, setstreetcountByWidthBucket] = useState(0);
+  const [streetsumWidthbyLength, setstreetsumWidthbyLength] = useState(0);
+  const [streetsumWidthbyLengthBucket, setstreetsumWidthbyLengthBucket] =
+    useState(0);
+
   // const [streetByWidth, setStreetByWidth] = useState([]);
   // const [streetByWidthBucket, setStreetByWidthBucket ] = useState([]);
 
@@ -122,6 +128,11 @@ const Sandbox = () => {
           streetwidthMiles,
           streetareaAcres,
 
+          streetcountByWidth,
+          streetcountByWidthBucket,
+          streetsumWidthbyLength,
+          streetsumWidthbyLengthBucket,
+
           // streetByWidth,
           // streetByWidthBucket,
         } = data;
@@ -147,6 +158,11 @@ const Sandbox = () => {
         setstreetaverageLengthFeet(streetaverageLengthFeet);
         setstreetaverageWidthFeet(streetaverageWidthFeet);
         setstreetaverageAreaAcres(streetaverageAreaAcres);
+
+        setstreetcountByWidth(streetcountByWidth);
+        setstreetcountByWidthBucket(streetcountByWidthBucket);
+        setstreetsumWidthbyLength(streetsumWidthbyLength);
+        setstreetsumWidthbyLengthBucket(streetsumWidthbyLengthBucket);
 
         const positionsName = candidateByPosition.map(
           (item) => item.positionName
@@ -246,6 +262,55 @@ const Sandbox = () => {
 
   return !loading ? (
     <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          marginTop: "50px",
+        }}
+      >
+        <Box
+          width={1 / 2}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Another Bar Chart with Random Data
+          </Header.H4>
+          <Bar options={options} data={data} />
+          {/* <Bar
+            options={appByPositionChart.options}
+            data={appByPositionChart.data}
+          /> */}
+        </Box>
+
+        <Box
+          width={1 / 2}
+          variant="card"
+          style={{ textAlign: "center", margin: "10px", padding: "18px" }}
+        >
+          <Header.H4
+            style={{
+              fontWeight: "400",
+              marginTop: "0px",
+              marginBottom: "40px",
+            }}
+          >
+            Yet Another Recruitment Funnel
+          </Header.H4>
+          <FunnelChart
+            style={{ width: "70%", margin: "auto" }}
+            data={hiringFunnelChart.data}
+          />
+        </Box>
+      </div>
       <div
         style={{
           display: "flex",
