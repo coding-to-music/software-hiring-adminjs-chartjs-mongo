@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import { Box, Header } from "@adminjs/design-system";
 // import { chartData, chartOptions } from "../custom-components/faker-bar-chart";
+// import { chartData, chartOptions } from "../custom-components/faker-bar-chart";
 // import { CategoryScale, Chart } from "chart.js";
 // import { CategoryScale, Bar } from "chart.js";
 import { useEffect, useState } from "react";
@@ -50,6 +51,9 @@ const data = {
     },
   ],
 };
+
+const chartData = data;
+const chartOptions = options;
 
 const Sandbox = () => {
   const [totalPosition, setTotalPosition] = useState(0);
@@ -284,7 +288,7 @@ const Sandbox = () => {
           >
             Another Bar Chart with Random Data
           </Header.H4>
-          <Bar options={options} data={data} />
+          <Bar options={chartOptions} data={chartData} />
           {/* <Bar
             options={appByPositionChart.options}
             data={appByPositionChart.data}

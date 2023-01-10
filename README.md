@@ -35,6 +35,15 @@ Dashboard charts
 -
 -
 
+MongoDB Atlas Dashboard
+
+- Need to divide Length by Miles
+- Need to divide Area by Acres
+- Need to bucket Width to display total Length
+- Need heat map of total Length by Width
+-
+-
+
 # Subject and Body are empty in the emails
 
 # 🚀 Use AdminJS to Quickly Build an Administration Web App 🚀
