@@ -41,7 +41,7 @@ MongoDB Atlas Dashboard
 - Need to divide Area by Acres
 - Need to bucket Width to display total Length
 - Need heat map of total Length by Width
--
+- Geo map options?
 -
 
 # Subject and Body are empty in the emails
