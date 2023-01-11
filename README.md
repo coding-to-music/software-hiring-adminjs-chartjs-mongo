@@ -14,7 +14,7 @@ Works!
 - Icon logo and favicon
 - deploy to Vercel or GitHub pages
 
-Dashboard charts
+## Dashboard charts
 
 - Position
 - Email
@@ -23,8 +23,8 @@ Dashboard charts
 
 ## Street
 
-- # complete data
-- # incomplete data
+## MongoDB Atlas Charts
+
 - area distribution
 - width distribution
 - length distribution
@@ -34,6 +34,52 @@ Dashboard charts
 - Available combos
 -
 -
+
+## Aggregation examples, to paste into MongoDB Atlas Chart
+
+Sum of streetLength in Miles
+
+```
+db.collection.aggregate(
+[
+    {
+        $group: {
+            _id: null,
+            totalLengthInFeet: { $sum: "$streetLength" }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            totalLengthInMiles: { $divide: [ "$totalLengthInFeet", 5280 ] }
+        }
+    }
+]
+)
+```
+
+and
+
+Sum of Width in Miles
+
+```
+db.collection.aggregate(
+[
+    {
+        $group: {
+            _id: null,
+            totalLengthInFeet: { $sum: "$streetLength" }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            totalLengthInMiles: { $divide: [ "$totalLengthInFeet", 5280 ] }
+        }
+    }
+]
+)
+```
 
 MongoDB Atlas Dashboard
 
