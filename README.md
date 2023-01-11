@@ -37,7 +37,7 @@ Works!
 
 ## Aggregation examples, to paste into MongoDB Atlas Chart
 
-Sum of streetLength in Miles
+### Sum of streetLength in Miles
 
 ```
 db.collection.aggregate(
@@ -58,9 +58,7 @@ db.collection.aggregate(
 )
 ```
 
-and
-
-Sum of Width in Miles
+### Sum of Width in Miles
 
 ```
 db.collection.aggregate(
@@ -68,13 +66,34 @@ db.collection.aggregate(
     {
         $group: {
             _id: null,
-            totalLengthInFeet: { $sum: "$streetLength" }
+            totalWidthInFeet: { $sum: "$width" }
         }
     },
     {
         $project: {
             _id: 0,
-            totalLengthInMiles: { $divide: [ "$totalLengthInFeet", 5280 ] }
+            totalWidthInMiles: { $divide: [ "$totalWidthInFeet", 5280 ] }
+        }
+    }
+]
+)
+```
+
+### Sum of Area in Acres
+
+```
+db.collection.aggregate(
+[
+    {
+        $group: {
+            _id: null,
+            totalAreaInFeet: { $sum: "$area" }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            totalAreaInAcres: { $divide: [ "$totalAreaInFeet", 43560 ] }
         }
     }
 ]
