@@ -100,10 +100,205 @@ db.collection.aggregate(
 )
 ```
 
-MongoDB Atlas Dashboard
+### Sum of StreetLength by Binned by Width (result is in Feet)
 
-- Need to divide Length by Miles
-- Need to divide Area by Acres
+```
+[
+  {
+    "$match": {
+      "area": {
+        "$gte": 1
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "width": {
+        "$cond": {
+          "if": {
+            "$in": [
+              {
+                "$type": "$width"
+              },
+              [
+                "double",
+                "int",
+                "long",
+                "decimal"
+              ]
+            ]
+          },
+          "then": "$width",
+          "else": null
+        }
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "__alias_0": {
+        "$multiply": [
+          {
+            "$floor": {
+              "$divide": [
+                "$width",
+                10
+              ]
+            }
+          },
+          10
+        ]
+      }
+    }
+  },
+  {
+    "$group": {
+      "_id": {
+        "__alias_0": "$__alias_0"
+      },
+      "__alias_1": {
+        "$sum": "$streetLength"
+      }
+    }
+  },
+  {
+    "$project": {
+      "_id": 0,
+      "__alias_0": "$_id.__alias_0",
+      "__alias_1": 1
+    }
+  },
+  {
+    "$project": {
+      "y": "$__alias_0",
+      "x": "$__alias_1",
+      "_id": 0
+    }
+  },
+  {
+    "$sort": {
+      "y": 1
+    }
+  },
+  {
+    "$limit": 5000
+  }
+]
+```
+
+### Add this to the above
+
+```
+    {
+        $group: {
+            _id: null,
+            totalLengthInFeet: { $sum: "$streetLength" }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            totalLengthInMiles: { $divide: [ "$totalLengthInFeet", 5280 ] }
+        }
+    }
+```
+
+### Sum of StreetLength by Binned by Width (Result is in Miles)
+
+```
+[
+  {
+    "$match": {
+      "area": {
+        "$gte": 1
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "width": {
+        "$cond": {
+          "if": {
+            "$in": [
+              {
+                "$type": "$width"
+              },
+              [
+                "double",
+                "int",
+                "long",
+                "decimal"
+              ]
+            ]
+          },
+          "then": "$width",
+          "else": null
+        }
+      }
+    }
+  },
+  {
+    "$addFields": {
+      "__alias_0": {
+        "$multiply": [
+          {
+            "$floor": {
+              "$divide": [
+                "$width",
+                10
+              ]
+            }
+          },
+          10
+        ]
+      }
+    }
+  },
+  {
+    "$group": {
+      "_id": {
+        "__alias_0": "$__alias_0"
+      },
+      "totalLengthInFeet": {
+        "$sum": "$streetLength"
+      }
+    }
+  },
+  {
+    "$project": {
+      "_id": 0,
+      "__alias_0": "$_id.__alias_0",
+      "totalLengthInFeet": 1
+    }
+  },
+    {
+        $project: {
+            _id: 0,
+            totalLengthInMiles: { $divide: [ "$totalLengthInFeet", 5280 ] }
+        }
+    }
+  {
+    "$project": {
+      "y": "$__alias_0",
+      "x": "$totalLengthInMiles",
+      "_id": 0
+    }
+  },
+  {
+    "$sort": {
+      "y": 1
+    }
+  },
+  {
+    "$limit": 5000
+  }
+]
+```
+
+### MongoDB Atlas Dashboard
+
+- almost done - Need to divide Length by Miles
+- done - Need to divide Area by Acres
 - Need to bucket Width to display total Length
 - Need heat map of total Length by Width
 - Geo map options?
